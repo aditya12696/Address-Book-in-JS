@@ -20,18 +20,13 @@ try {
     console.error("Error:", error.message);
 }
 
-// View persons by city
-console.log("\nPersons by City:");
-console.log(personalBook.viewPersonsByCity());
+// Display unsorted contacts
+console.log("\nUnsorted Contacts:");
+personalBook.displayContacts();
 
-// View persons by state
-console.log("\nPersons by State:");
-console.log(personalBook.viewPersonsByState());
+// Sort contacts by name
+personalBook.sortByName();
 
-// Count persons by city
-console.log("\nContact Count by City:");
-console.log(personalBook.countByCity());
-
-// Count persons by state
-console.log("\nContact Count by State:");
-console.log(personalBook.countByState());
+// Display sorted contacts
+console.log("\nSorted Contacts:");
+personalBook.displayContacts();

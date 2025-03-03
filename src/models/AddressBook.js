@@ -85,6 +85,14 @@ class AddressBook {
         }, {});
     }
 
+    sortByName() {
+        this.contacts.sort((a, b) => {
+            const nameA = `${a.firstName} ${a.lastName}`.toLowerCase();
+            const nameB = `${b.firstName} ${b.lastName}`.toLowerCase();
+            return nameA.localeCompare(nameB);
+        });
+    }
+
     displayContacts() {
         console.log(`\nAddress Book: ${this.name}`);
         if (this.contacts.length === 0) {
