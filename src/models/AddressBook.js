@@ -8,19 +8,24 @@ class AddressBook {
         this.contacts.push(contact);
     }
 
-    deleteContact(email) {
-        this.contacts = this.contacts.filter(contact => contact.email !== email);
+    findContactByName(name) {
+        return this.contacts.find(contact => 
+            contact.firstName.toLowerCase() === name.toLowerCase() || 
+            contact.lastName.toLowerCase() === name.toLowerCase()
+        ) || null;
     }
 
-    updateContact(email, newContact) {
-        const index = this.contacts.findIndex(contact => contact.email === email);
+    editContact(name, updatedContact) {
+        const index = this.contacts.findIndex(contact => 
+            contact.firstName.toLowerCase() === name.toLowerCase() || 
+            contact.lastName.toLowerCase() === name.toLowerCase()
+        );
+        
         if (index !== -1) {
-            this.contacts[index] = newContact;
+            this.contacts[index] = updatedContact;
+            return true;
         }
-    }
-
-    searchContact(email) {
-        return this.contacts.find(contact => contact.email === email) || null;
+        return false;
     }
 
     displayContacts() {
