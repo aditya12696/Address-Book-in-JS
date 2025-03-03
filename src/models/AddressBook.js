@@ -1,5 +1,6 @@
 class AddressBook {
-    constructor() {
+    constructor(name) {
+        this.name = name;
         this.contacts = [];
     }
 
@@ -23,6 +24,7 @@ class AddressBook {
     }
 
     displayContacts() {
+        console.log(`\nAddress Book: ${this.name}`);
         this.contacts.forEach(contact => console.log(contact.toString()));
     }
 }
