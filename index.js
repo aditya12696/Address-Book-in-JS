@@ -14,18 +14,8 @@ try {
     console.error("Error:", error.message);
 }
 
-// Display contacts before deletion
-console.log("\nBefore Deleting Contact:");
+// Display contacts
 personalBook.displayContacts();
 
-// Find and delete a contact by name
-const nameToDelete = "John";
-if (personalBook.deleteContactByName(nameToDelete)) {
-    console.log(`\nContact '${nameToDelete}' deleted successfully.`);
-} else {
-    console.log(`\nContact with name '${nameToDelete}' not found.`);
-}
-
-// Display contacts after deletion
-console.log("\nAfter Deleting Contact:");
-personalBook.displayContacts();
+// Get contact count
+console.log(`\nTotal Contacts: ${personalBook.getContactCount()}`);

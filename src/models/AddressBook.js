@@ -28,6 +28,10 @@ class AddressBook {
         return false;
     }
 
+    getContactCount() {
+        return this.contacts.reduce((count) => count + 1, 0);
+    }
+
     displayContacts() {
         console.log(`\nAddress Book: ${this.name}`);
         if (this.contacts.length === 0) {
