@@ -15,14 +15,14 @@ class AddressBook {
         ) || null;
     }
 
-    editContact(name, updatedContact) {
+    deleteContactByName(name) {
         const index = this.contacts.findIndex(contact => 
             contact.firstName.toLowerCase() === name.toLowerCase() || 
             contact.lastName.toLowerCase() === name.toLowerCase()
         );
-        
+
         if (index !== -1) {
-            this.contacts[index] = updatedContact;
+            this.contacts.splice(index, 1);
             return true;
         }
         return false;
@@ -30,7 +30,11 @@ class AddressBook {
 
     displayContacts() {
         console.log(`\nAddress Book: ${this.name}`);
-        this.contacts.forEach(contact => console.log(contact.toString()));
+        if (this.contacts.length === 0) {
+            console.log("No contacts available.");
+        } else {
+            this.contacts.forEach(contact => console.log(contact.toString()));
+        }
     }
 }
 
