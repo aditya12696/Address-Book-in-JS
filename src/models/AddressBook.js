@@ -5,7 +5,19 @@ class AddressBook {
     }
 
     addContact(contact) {
+        // Check for duplicate contact by first and last name
+        const isDuplicate = this.contacts.some(existingContact =>
+            existingContact.firstName.toLowerCase() === contact.firstName.toLowerCase() &&
+            existingContact.lastName.toLowerCase() === contact.lastName.toLowerCase()
+        );
+
+        if (isDuplicate) {
+            console.log(`\nDuplicate Contact: ${contact.firstName} ${contact.lastName} already exists.`);
+            return false;
+        }
+
         this.contacts.push(contact);
+        return true;
     }
 
     findContactByName(name) {
