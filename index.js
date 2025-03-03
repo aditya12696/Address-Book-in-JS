@@ -8,22 +8,22 @@ try {
     const contact1 = new Contact("John", "Doe", "1234 Street", "New York", "New York", "10001", "9876543210", "john@example.com");
     const contact2 = new Contact("Alice", "Smith", "5678 Avenue", "Los Angeles", "California", "90001", "9988776655", "alice@example.com");
     const contact3 = new Contact("Bob", "Brown", "9101 Road", "New York", "New York", "10002", "9123456789", "bob@example.com");
-    
+    const contact4 = new Contact("Charlie", "Johnson", "1213 Lane", "Los Angeles", "California", "90002", "9111223344", "charlie@example.com");
+
     personalBook.addContact(contact1);
     personalBook.addContact(contact2);
     personalBook.addContact(contact3);
+    personalBook.addContact(contact4);
 } catch (error) {
     console.error("Error:", error.message);
 }
 
-// Search by city
-const cityToSearch = "New York";
-const contactsInCity = personalBook.searchByCity(cityToSearch);
-console.log(`\nContacts in ${cityToSearch}:`);
-contactsInCity.forEach(contact => console.log(contact.toString()));
+// View persons by city
+console.log("\nPersons by City:");
+const personsByCity = personalBook.viewPersonsByCity();
+console.log(personsByCity);
 
-// Search by state
-const stateToSearch = "California";
-const contactsInState = personalBook.searchByState(stateToSearch);
-console.log(`\nContacts in ${stateToSearch}:`);
-contactsInState.forEach(contact => console.log(contact.toString()));
+// View persons by state
+console.log("\nPersons by State:");
+const personsByState = personalBook.viewPersonsByState();
+console.log(personsByState);

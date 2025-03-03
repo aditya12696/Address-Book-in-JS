@@ -51,6 +51,26 @@ class AddressBook {
         return this.contacts.filter(contact => contact.state.toLowerCase() === state.toLowerCase());
     }
 
+    viewPersonsByCity() {
+        return this.contacts.reduce((cityMap, contact) => {
+            if (!cityMap[contact.city]) {
+                cityMap[contact.city] = [];
+            }
+            cityMap[contact.city].push(`${contact.firstName} ${contact.lastName}`);
+            return cityMap;
+        }, {});
+    }
+
+    viewPersonsByState() {
+        return this.contacts.reduce((stateMap, contact) => {
+            if (!stateMap[contact.state]) {
+                stateMap[contact.state] = [];
+            }
+            stateMap[contact.state].push(`${contact.firstName} ${contact.lastName}`);
+            return stateMap;
+        }, {});
+    }
+
     displayContacts() {
         console.log(`\nAddress Book: ${this.name}`);
         if (this.contacts.length === 0) {
