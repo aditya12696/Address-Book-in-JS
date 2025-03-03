@@ -71,6 +71,20 @@ class AddressBook {
         }, {});
     }
 
+    countByCity() {
+        return this.contacts.reduce((cityCount, contact) => {
+            cityCount[contact.city] = (cityCount[contact.city] || 0) + 1;
+            return cityCount;
+        }, {});
+    }
+
+    countByState() {
+        return this.contacts.reduce((stateCount, contact) => {
+            stateCount[contact.state] = (stateCount[contact.state] || 0) + 1;
+            return stateCount;
+        }, {});
+    }
+
     displayContacts() {
         console.log(`\nAddress Book: ${this.name}`);
         if (this.contacts.length === 0) {
