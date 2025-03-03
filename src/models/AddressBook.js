@@ -5,7 +5,6 @@ class AddressBook {
     }
 
     addContact(contact) {
-        // Check for duplicate contact by first and last name
         const isDuplicate = this.contacts.some(existingContact =>
             existingContact.firstName.toLowerCase() === contact.firstName.toLowerCase() &&
             existingContact.lastName.toLowerCase() === contact.lastName.toLowerCase()
@@ -42,6 +41,14 @@ class AddressBook {
 
     getContactCount() {
         return this.contacts.reduce((count) => count + 1, 0);
+    }
+
+    searchByCity(city) {
+        return this.contacts.filter(contact => contact.city.toLowerCase() === city.toLowerCase());
+    }
+
+    searchByState(state) {
+        return this.contacts.filter(contact => contact.state.toLowerCase() === state.toLowerCase());
     }
 
     displayContacts() {
