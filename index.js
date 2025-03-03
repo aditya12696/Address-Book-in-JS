@@ -3,11 +3,19 @@ const AddressBook = require("./src/models/AddressBook");
 
 const addressBook = new AddressBook();
 
-const contact1 = new Contact("John", "Doe", "123 St", "New York", "NY", "10001", "1234567890", "john@example.com");
-const contact2 = new Contact("Jane", "Smith", "456 Lane", "LA", "CA", "90001", "9876543210", "jane@example.com");
+try {
+    const contact1 = new Contact("John", "Doe", "1234 Street", "New York", "New York", "10001", "9876543210", "john@example.com");
+    addressBook.addContact(contact1);
+} catch (error) {
+    console.error("Error:", error.message);
+}
 
-addressBook.addContact(contact1);
-addressBook.addContact(contact2);
+try {
+    const invalidContact = new Contact("jo", "smith", "12 St", "NY", "NY", "100", "123456", "invalid.com");
+    addressBook.addContact(invalidContact);
+} catch (error) {
+    console.error("Error:", error.message);
+}
 
 console.log("All Contacts:");
 addressBook.displayContacts();
