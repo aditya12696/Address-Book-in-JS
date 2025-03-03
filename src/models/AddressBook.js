@@ -37,7 +37,7 @@ class AddressBook {
             return true;
         }
         return false;
-    }
+    } 
 
     getContactCount() {
         return this.contacts.reduce((count) => count + 1, 0);
